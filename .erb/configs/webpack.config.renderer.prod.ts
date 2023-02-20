@@ -21,8 +21,8 @@ deleteSourceMaps();
 const devtoolsConfig =
   process.env.DEBUG_PROD === 'true'
     ? {
-        devtool: 'source-map',
-      }
+      devtool: 'source-map',
+    }
     : {};
 
 const configuration: webpack.Configuration = {
@@ -74,6 +74,11 @@ const configuration: webpack.Configuration = {
       // Images
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      // Sounds
+      {
+        test: /\.(wav|mp3)$/i,
         type: 'asset/resource',
       },
     ],
